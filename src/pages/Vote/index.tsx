@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { TYPE, ExternalLink } from '../../theme'
@@ -21,6 +21,8 @@ import Loader from '../../components/Loader'
 import FormattedCurrencyAmount from '../../components/FormattedCurrencyAmount'
 import { useTranslation } from 'react-i18next'
 import { addMarginToStartOfCSSObject } from '../../utils/language'
+import { useModalOpen, useToggleDelegateModal } from '../../state/application/hooks'
+import { ApplicationModal } from '../../state/application/actions'
 
 const PageWrapper = styled(AutoColumn)``
 
@@ -104,7 +106,10 @@ const EmptyProposals = styled.div`
 
 export default function Vote() {
   const { account, chainId } = useActiveWeb3React()
-  const [showModal, setShowModal] = useState<boolean>(false)
+
+  // toggle for showing delegation modal
+  const showDelegateModal = useModalOpen(ApplicationModal.DELEGATE)
+  const toggelDelegateModal = useToggleDelegateModal()
 
   // get data to list all proposals
   const allProposals: ProposalData[] = useAllProposalData()
@@ -122,8 +127,8 @@ export default function Vote() {
   return (
     <PageWrapper gap="lg" justify="center">
       <DelegateModal
-        isOpen={showModal}
-        onDismiss={() => setShowModal(false)}
+        isOpen={showDelegateModal}
+        onDismiss={toggelDelegateModal}
         title={showUnlockVoting ? t('votePage.unlockVotes') : t('votePage.updateDelegation')}
       />
       <TopSection gap="md">
@@ -153,14 +158,16 @@ export default function Vote() {
       </TopSection>
       <TopSection gap="2px">
         <WrapSmall>
-          <TYPE.mediumHeader style={{ margin: '0.5rem 0' }}>{t('votePage.proposals')}</TYPE.mediumHeader>
+          <TYPE.mediumHeader style={{ margin: '0.5rem 0.5rem 0.5rem 0', flexShrink: 0 }}>
+            {t('votePage.proposals')}
+          </TYPE.mediumHeader>
           {(!allProposals || allProposals.length === 0) && !availableVotes && <Loader />}
           {showUnlockVoting ? (
             <ButtonPrimary
               style={{ width: 'fit-content' }}
               padding="8px"
               borderRadius="8px"
-              onClick={() => setShowModal(true)}
+              onClick={toggelDelegateModal}
             >
               {t('votePage.unlockVotes')}
             </ButtonPrimary>
@@ -194,7 +201,7 @@ export default function Vote() {
                   >
                     {userDelegatee === account ? 'Self' : shortenAddress(userDelegatee)}
                   </StyledExternalLink>
-                  <TextButton onClick={() => setShowModal(true)} style={addMarginToStartOfCSSObject('4px')}>
+                  <TextButton onClick={toggelDelegateModal} style={addMarginToStartOfCSSObject('4px')}>
                     ({t('edit')})
                   </TextButton>
                 </AddressButton>
