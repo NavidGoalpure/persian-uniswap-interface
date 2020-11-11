@@ -30,16 +30,16 @@ const PoolSection = styled.div`
   justify-self: center;
 `
 
+const DataRow = styled(RowBetween)`
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+flex-direction: column;
+`};
+`
+
 export default function Earn() {
   const { t } = useTranslation()
   const { chainId } = useActiveWeb3React()
   const stakingInfos = useStakingInfo()
-
-  const DataRow = styled(RowBetween)`
-    ${({ theme }) => theme.mediaWidth.upToSmall`
-    flex-direction: column;
-  `};
-  `
 
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
 
