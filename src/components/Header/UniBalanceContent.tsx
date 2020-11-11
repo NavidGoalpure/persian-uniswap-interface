@@ -16,6 +16,8 @@ import useUSDCPrice from '../../utils/useUSDCPrice'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import { Break, CardBGImage, CardNoise, CardSection, DataCard } from '../earn/styled'
+import { useTranslation } from 'react-i18next'
+import { setAbsoluteDirectionToEnd } from 'utils/language'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -27,9 +29,9 @@ const ModalUpper = styled(DataCard)`
   padding: 0.5rem;
 `
 
-const StyledClose = styled(X)`
+const StyledClose = styled(X)<{ absoluteDirection?: string }>`
   position: absolute;
-  right: 16px;
+  ${({ absoluteDirection }) => absoluteDirection && setAbsoluteDirectionToEnd(absoluteDirection)}}
   top: 16px;
 
   :hover {
@@ -41,6 +43,7 @@ const StyledClose = styled(X)`
  * Content for balance stats modal
  */
 export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowUniBalanceModal: any }) {
+  const { t } = useTranslation()
   const { account, chainId } = useActiveWeb3React()
   const uni = chainId ? UNI[chainId] : undefined
 
@@ -67,8 +70,8 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
         <CardNoise />
         <CardSection gap="md">
           <RowBetween>
-            <TYPE.white color="white">Your UNI Breakdown</TYPE.white>
-            <StyledClose stroke="white" onClick={() => setShowUniBalanceModal(false)} />
+            <TYPE.white color="white">{t('uni.yourUNIBreakdown')}</TYPE.white>
+            <StyledClose stroke="white" onClick={() => setShowUniBalanceModal(false)} absoluteDirection="1rem" />
           </RowBetween>
         </CardSection>
         <Break />
@@ -83,16 +86,16 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
               </AutoColumn>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white color="white">Balance:</TYPE.white>
+                  <TYPE.white color="white">{t('balance')}:</TYPE.white>
                   <TYPE.white color="white">{uniBalance?.toFixed(2, { groupSeparator: ',' })}</TYPE.white>
                 </RowBetween>
                 <RowBetween>
-                  <TYPE.white color="white">Unclaimed:</TYPE.white>
+                  <TYPE.white color="white">{t('uni.unclaimed')}:</TYPE.white>
                   <TYPE.white color="white">
                     {uniToClaim?.toFixed(4, { groupSeparator: ',' })}{' '}
                     {uniToClaim && uniToClaim.greaterThan('0') && (
                       <StyledInternalLink onClick={() => setShowUniBalanceModal(false)} to="/uni">
-                        (claim)
+                        ({t('uni.claim')})
                       </StyledInternalLink>
                     )}
                   </TYPE.white>
@@ -105,19 +108,21 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
         <CardSection gap="sm">
           <AutoColumn gap="md">
             <RowBetween>
-              <TYPE.white color="white">UNI price:</TYPE.white>
+              <TYPE.white color="white">{t('uni.uniPrice')}:</TYPE.white>
               <TYPE.white color="white">${uniPrice?.toFixed(2) ?? '-'}</TYPE.white>
             </RowBetween>
             <RowBetween>
-              <TYPE.white color="white">UNI in circulation:</TYPE.white>
+              <TYPE.white color="white">{t('uni.uniInCirculation')}:</TYPE.white>
               <TYPE.white color="white">{circulation?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
             <RowBetween>
-              <TYPE.white color="white">Total Supply</TYPE.white>
+              <TYPE.white color="white">{t('uni.totalSupply')}</TYPE.white>
               <TYPE.white color="white">{totalSupply?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
             {uni && uni.chainId === ChainId.MAINNET ? (
-              <ExternalLink href={`https://uniswap.info/token/${uni.address}`}>View UNI Analytics</ExternalLink>
+              <ExternalLink href={`https://uniswap.info/token/${uni.address}`}>
+                {t('uni.viewUNIAnalytics')}
+              </ExternalLink>
             ) : null}
           </AutoColumn>
         </CardSection>

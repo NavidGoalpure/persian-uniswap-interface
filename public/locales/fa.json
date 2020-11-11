@@ -297,5 +297,14 @@
     "noProposalsFound": "هیچ طرحی موجود نیست.",
     "proposalsSectionDesc": "طرح هایی که توسط اعضای کامیونیتی ثبت شده باشند، اینجا نمایش داده می‌شوند.",
     "proposalsSectionHint": "برای پیشنهاد یک طرح جدید باید حداقل یک درصد از کل موجودی «UNI»ها را در اختیار داشته باشید."
+  },
+  "uni": {
+    "yourUNIBreakdown": "اطلاعات مربوط به «یونی» شما",
+    "unclaimed": "مطالبه نشده",
+    "claim": "مطالبه",
+    "uniPrice": "قیمت UNI",
+    "uniInCirculation": "UNI در چرخه",
+    "totalSupply": "Total Supply",
+    "viewUNIAnalytics": "مشاهده آمارهای UNI"
   }
 }

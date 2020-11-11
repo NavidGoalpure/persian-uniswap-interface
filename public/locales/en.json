@@ -294,5 +294,14 @@
     "noProposalsFound": "No proposals found.",
     "proposalsSectionDesc": "Proposals submitted by community members will appear here.",
     "proposalsSectionHint": "A minimum threshhold of 1% of the total UNI supply is required to submit proposals"
+  },
+  "uni": {
+    "yourUNIBreakdown": "Your UNI Breakdown",
+    "unclaimed": "Unclaimed",
+    "claim": "claim",
+    "uniPrice": "UNI Price",
+    "uniInCirculation": "UNI in circulation",
+    "totalSupply": "Total Supply",
+    "viewUNIAnalytics": "View UNI Analytics"
   }
 }
