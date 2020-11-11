@@ -102,7 +102,9 @@
   "approving": "Approving {{token}}",
   "supply": "Supply",
   "add": "Add",
+  "added": "added",
   "remove": "Remove",
+  "removed": "removed",
   "confirm": "Confirm",
   "openSpecification": "open specification",
   "checkOut": "Check out",
@@ -117,6 +119,9 @@
   "edit": "edit",
   "back": "back",
   "siteAdress": "hezarchiz.com",
+  "makeSureURL": "Make sure the URL is",
+  "alwaysMakeSureURL": "Always make sure the URL is",
+  "bookmarkIt": "bookmark it to be safe",
   "liquidity": {
     "add": "Add Liquidity",
     "remove": "Remove Liquidity",
@@ -159,11 +164,12 @@
     "manageLiquidityinRewardsPool": "Manage Liquidity in Rewards Pool"
   },
   "transaction": {
-    "viewOnEtherscan": " ٰView in Etherscan",
+    "viewOnEtherscan": " ٰView transaction in Etherscan",
     "waitingForConfitm": "Waiting For Confirmation",
     "confirmInWallet": "Confirm this transaction in your wallet",
     "submitted": "Transaction Submitted",
-    "clearAll": "clear all"
+    "clearAll": "clear all",
+    "recentTransactions": "Recent Transactions"
   },
   "findPage": {
     "title": "Import Pool",
@@ -302,6 +308,15 @@
     "uniPrice": "UNI Price",
     "uniInCirculation": "UNI in circulation",
     "totalSupply": "Total Supply",
-    "viewUNIAnalytics": "View UNI Analytics"
+    "viewUNIAnalytics": "View UNI Analytics",
+    "claimYourUNI": "Claim your UNI tokens",
+    "uNIHasArrived": "UNI has arrived"
+  },
+  "popup": {
+    "theTokenList": "The token list ",
+    "hasBeenUpdated": "has been updated to",
+    "updateAvailableForTokenList": "An update is available for the token list ",
+    "tokensUpdated": "tokens updated",
+    "acceptUpdate": "Accept update"
   }
 }

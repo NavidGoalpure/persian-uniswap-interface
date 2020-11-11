@@ -11,6 +11,7 @@ import listVersionLabel from '../../utils/listVersionLabel'
 import { ButtonSecondary } from '../Button'
 import { AutoColumn } from '../Column'
 import { AutoRow } from '../Row'
+import { useTranslation } from 'react-i18next'
 
 export default function ListUpdatePopup({
   popKey,
@@ -25,6 +26,7 @@ export default function ListUpdatePopup({
   newList: TokenList
   auto: boolean
 }) {
+  const { t } = useTranslation()
   const removePopup = useRemovePopup()
   const removeThisPopup = useCallback(() => removePopup(popKey), [popKey, removePopup])
   const dispatch = useDispatch<AppDispatch>()
@@ -54,15 +56,17 @@ export default function ListUpdatePopup({
       <AutoColumn style={{ flex: '1' }} gap="8px">
         {auto ? (
           <TYPE.body fontWeight={500}>
-            The token list &quot;{oldList.name}&quot; has been updated to{' '}
+            {t('popup.theTokenList')}
+            &quot;{oldList.name}&quot;
+            {t('popup.hasBeenUpdated')}
             <strong>{listVersionLabel(newList.version)}</strong>.
           </TYPE.body>
         ) : (
           <>
             <div>
               <Text>
-                An update is available for the token list &quot;{oldList.name}&quot; (
-                {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}).
+                {t('popup.updateAvailableForTokenList')} &quot;{oldList.name}&quot; ({listVersionLabel(oldList.version)}
+                {t('to')} {listVersionLabel(newList.version)}).
               </Text>
               <ul>
                 {tokensAdded.length > 0 ? (
@@ -73,7 +77,7 @@ export default function ListUpdatePopup({
                         {i === tokensAdded.length - 1 ? null : ', '}
                       </React.Fragment>
                     ))}{' '}
-                    added
+                    {t('added')}
                   </li>
                 ) : null}
                 {tokensRemoved.length > 0 ? (
@@ -83,19 +87,23 @@ export default function ListUpdatePopup({
                         <strong title={token.address}>{token.symbol}</strong>
                         {i === tokensRemoved.length - 1 ? null : ', '}
                       </React.Fragment>
-                    ))}{' '}
-                    removed
+                    ))}
+                    {t('removed')}
                   </li>
                 ) : null}
-                {numTokensChanged > 0 ? <li>{numTokensChanged} tokens updated</li> : null}
+                {numTokensChanged > 0 ? (
+                  <li>
+                    {numTokensChanged} {t('popup.tokensUpdated')}
+                  </li>
+                ) : null}
               </ul>
             </div>
             <AutoRow>
               <div style={{ flexGrow: 1, marginRight: 12 }}>
-                <ButtonSecondary onClick={handleAcceptUpdate}>Accept update</ButtonSecondary>
+                <ButtonSecondary onClick={handleAcceptUpdate}>{t('popup.acceptUpdate')}</ButtonSecondary>
               </div>
               <div style={{ flexGrow: 1 }}>
-                <ButtonSecondary onClick={removeThisPopup}>Dismiss</ButtonSecondary>
+                <ButtonSecondary onClick={removeThisPopup}>{t('dismiss')}</ButtonSecondary>
               </div>
             </AutoRow>
           </>

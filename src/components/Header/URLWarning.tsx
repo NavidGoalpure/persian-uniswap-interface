@@ -31,7 +31,7 @@ export default function URLWarning() {
   return isMobile ? (
     <PhishAlert isActive={showURLWarning}>
       <div style={{ display: 'flex' }}>
-        <AlertTriangle style={{ marginRight: 6 }} size={12} /> Make sure the URL is
+        <AlertTriangle style={{ marginRight: 6 }} size={12} /> {t('makeSureURL')}
         <code style={{ padding: '0 4px', display: 'inline', fontWeight: 'bold' }}>{t('siteAdress')}</code>
       </div>
       <StyledClose size={12} onClick={toggleURLWarning} />
@@ -39,9 +39,9 @@ export default function URLWarning() {
   ) : window.location.hostname === t('siteAdress') ? (
     <PhishAlert isActive={showURLWarning}>
       <div style={{ display: 'flex' }}>
-        <AlertTriangle style={{ marginRight: 6 }} size={12} /> Always make sure the URL is
-        <code style={{ padding: '0 4px', display: 'inline', fontWeight: 'bold' }}>{t('siteAdress')}</code> - bookmark it
-        to be safe.
+        <AlertTriangle style={{ marginRight: 6 }} size={12} /> {t('alwaysMakeSureURL')}
+        <code style={{ padding: '0 4px', display: 'inline', fontWeight: 'bold' }}>{t('siteAdress')}</code> -{' '}
+        {t('bookmarkIt')}.
       </div>
       <StyledClose size={12} onClick={toggleURLWarning} />
     </PhishAlert>

@@ -17,6 +17,7 @@ import { useUserHasAvailableClaim, useUserUnclaimedAmount } from '../../state/cl
 import { TYPE } from '../../theme'
 import { AutoColumn } from '../Column'
 import { CardBGImage, CardNoise } from '../earn/styled'
+import { useTranslation } from 'react-i18next'
 
 const StyledClaimPopup = styled(AutoColumn)`
   background: radial-gradient(76.02% 75.41% at 1.84% 0%, #ff007a 0%, #021d43 100%);
@@ -53,6 +54,7 @@ const UniToken = styled.img`
 `
 
 export default function ClaimPopup() {
+  const { t } = useTranslation()
   const { account } = useActiveWeb3React()
 
   // dont store these in persisted state yet
@@ -91,8 +93,8 @@ export default function ClaimPopup() {
             <TYPE.white style={{ paddingTop: '1.25rem', textAlign: 'center' }} fontWeight={600} color="white">
               <span role="img" aria-label="party">
                 🎉
-              </span>{' '}
-              UNI has arrived{' '}
+              </span>
+              {t('uni.uNIHasArrived')}
               <span role="img" aria-label="party">
                 🎉
               </span>
@@ -103,7 +105,7 @@ export default function ClaimPopup() {
           </AutoColumn>
           <AutoColumn style={{ zIndex: 10 }} justify="center">
             <ButtonPrimary padding="8px" borderRadius="8px" width={'fit-content'} onClick={toggleSelfClaimModal}>
-              Claim your UNI tokens
+              {t('uni.claimYourUNI')}
             </ButtonPrimary>
           </AutoColumn>
         </StyledClaimPopup>

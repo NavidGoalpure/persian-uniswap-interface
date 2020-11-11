@@ -102,7 +102,9 @@
   "approving": "درحال تایید {{token}}",
   "supply": "سپرده‌گذاری",
   "add": "افزودن",
+  "added": "افزوده شد",
   "remove": "حذف",
+  "removed": "حذف شد",
   "confirm": "تایید",
   "openSpecification": "درحال بررسی ",
   "checkOut": "را چک کنید",
@@ -117,6 +119,9 @@
   "edit": "ویرایش",
   "back": "بازگشت",
   "siteAdress": "hezarchiz.com",
+  "makeSureURL": "دقت کنید که آدرس سایت شما این باشد",
+  "alwaysMakeSureURL": "همیشه کنید که آدرس سایت شما این باشد",
+  "bookmarkIt": "اگر از آدرس سایت مطمئن هستید، آن را بوکمارک کنید",
   "liquidity": {
     "add": "افزودن نقدینگی",
     "remove": "حذف نقدینگی",
@@ -163,7 +168,8 @@
     "waitingForConfitm": "در انتظار تایید تراکنش",
     "confirmInWallet": "تایید تراکنش در $t(wallet) شما",
     "submitted": "تراکنش ثبت شد",
-    "clearAll": "حذف همه"
+    "clearAll": "حذف همه",
+    "recentTransactions": "تراکنش های اخیر"
   },
   "findPage": {
     "title": "افزودن استخر",
@@ -305,6 +311,17 @@
     "uniPrice": "قیمت UNI",
     "uniInCirculation": "UNI در چرخه",
     "totalSupply": "Total Supply",
-    "viewUNIAnalytics": "مشاهده آمارهای UNI"
+    "viewUNIAnalytics": "مشاهده آمارهای UNI",
+    "claimYourUNI": "UNI های خود را مطالبه کنید",
+    "uNIHasArrived": "UNI ها رسیدند"
+  },
+  "popup": {
+    "popup": {
+      "theTokenLis": "توکن لیست ",
+      "hasBeenUpdated": "آپدیت شد",
+      "updateAvailableForTokenList": "یک آدیت برای این توکن لیست، آماده شد ",
+      "tokensUpdated": "توکن‌ها آپدیت شدند",
+      "acceptUpdate": "پذیرفتن آپدیت"
+    }
   }
 }

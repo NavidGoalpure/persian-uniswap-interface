@@ -400,7 +400,7 @@ export default function AccountDetails({
       {!!pendingTransactions.length || !!confirmedTransactions.length ? (
         <LowerSection>
           <AutoRow mb={'1rem'} style={{ justifyContent: 'space-between' }}>
-            <TYPE.body>Recent Transactions</TYPE.body>
+            <TYPE.body>{t('transaction.recentTransactions')}</TYPE.body>
             <LinkStyledButton onClick={clearAllTransactionsCallback}>{`(${t(
               'transaction.clearAll'
             )})`}</LinkStyledButton>
