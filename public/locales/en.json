@@ -147,7 +147,7 @@
     "createPoolSupply": "Create Pool & Supply",
     "confirmSupply": "Confirm Supply",
     "pooledToken": "Pooled {{symbol}}:",
-    "yourPoolTokens": "Your pool tokens:",
+    "yourPoolTokens": "Your total pool tokens:",
     "yourPoolShares": "Your pool share:",
     "viewPoolInformation": "View pool information ↗",
     "receiveWETH": "Receive WETH",
@@ -155,7 +155,8 @@
     "rewardTitle": "Liquidity provider rewards",
     "rewardDesc": "Liquidity providers earn a 0.3% fee on all trades proportional to their share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.",
     "readMoreProvidingLiquidity": "Read more about providing liquidity",
-    "viewFeesAndAnalytics": "View accrued fees and analytics"
+    "viewFeesAndAnalytics": "View accrued fees and analytics",
+    "manageLiquidityinRewardsPool": "Manage Liquidity in Rewards Pool"
   },
   "transaction": {
     "viewOnEtherscan": " ٰView in Etherscan",

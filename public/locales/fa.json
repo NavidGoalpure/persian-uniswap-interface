@@ -147,7 +147,7 @@
     "createPoolSupply": "ساختن استخر نقدینگی و سپرده‌گذاری",
     "confirmSupply": "تایید سپرده‌گذاری",
     "pooledToken": "{{symbol}} سپرده‌ شده:",
-    "yourPoolTokens": "سپرده شما در استخر",
+    "yourPoolTokens": "سپرده نهایی شما در استخر",
     "yourPoolShares": "سهام شما در استخر",
     "viewPoolInformation": "نمایش اطلاعات استخر ↖️",
     "receiveWETH": "دریافت WETH",
@@ -155,7 +155,8 @@
     "rewardTitle": "پاداش سپرده‌گذار",
     "rewardDesc": "سپرده‌گذاران متناسب با سهم خود از استخر در تمام معاملات 0.3٪ کارمزد کسب می‌کنند. این کارمزد در همان لحظه به موجودی استخر اضافه می‌شود و در زمان برداشت نقدینگی، به ولت شما منتقل می‌گردد.",
     "readMoreProvidingLiquidity": "مطالعه بیشتر درباره سپرده‌گذاری",
-    "viewFeesAndAnalytics": "مشاهده کارمزدها و آمارها"
+    "viewFeesAndAnalytics": "مشاهده کارمزدها و آمارها",
+    "manageLiquidityinRewardsPool": "مدیریت نقدینگی در استخر پاداش"
   },
   "transaction": {
     "viewOnEtherscan": "Etherscan مشاهده تراکنش در",
