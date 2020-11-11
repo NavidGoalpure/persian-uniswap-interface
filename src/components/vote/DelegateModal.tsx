@@ -15,6 +15,7 @@ import { useDelegateCallback } from '../../state/governance/hooks'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { UNI } from '../../constants'
 import { LoadingView, SubmittedView } from '../ModalViews'
+import { useTranslation } from 'react-i18next'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -40,6 +41,7 @@ interface VoteModalProps {
 }
 
 export default function DelegateModal({ isOpen, onDismiss, title }: VoteModalProps) {
+  const { t } = useTranslation()
   const { account, chainId } = useActiveWeb3React()
 
   // state for delegate input
@@ -96,17 +98,14 @@ export default function DelegateModal({ isOpen, onDismiss, title }: VoteModalPro
               <TYPE.mediumHeader fontWeight={500}>{title}</TYPE.mediumHeader>
               <StyledClosed stroke="black" onClick={wrappedOndismiss} />
             </RowBetween>
-            <TYPE.body>Earned UNI tokens represent voting shares in Uniswap governance.</TYPE.body>
-            <TYPE.body>
-              You can either vote on each proposal yourself or delegate your votes to a third party.
-            </TYPE.body>
+            <TYPE.body>{t('votePage.uniswapGovernanceDesc')}</TYPE.body>
             {usingDelegate && <AddressInputPanel value={typed} onChange={handleRecipientType} />}
             <ButtonPrimary disabled={!isAddress(parsedAddress ?? '')} onClick={onDelegate}>
               <TYPE.mediumHeader color="white">{usingDelegate ? 'Delegate Votes' : 'Self Delegate'}</TYPE.mediumHeader>
             </ButtonPrimary>
             <TextButton onClick={() => setUsingDelegate(!usingDelegate)}>
               <TYPE.blue>
-                {usingDelegate ? 'Remove' : 'Add'} Delegate {!usingDelegate && '+'}
+                {usingDelegate ? t('remove') : t('add')} {` ${t('votePage.delegate')} `} {!usingDelegate && '+'}
               </TYPE.blue>
             </TextButton>
           </AutoColumn>

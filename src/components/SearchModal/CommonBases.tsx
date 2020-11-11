@@ -52,6 +52,7 @@ export default function CommonBases({
             }
           }}
           disable={selectedCurrency === ETHER}
+          style={{ direction: 'ltr' }}
         >
           <CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} />
           <Text fontWeight={500} fontSize={16}>
@@ -61,7 +62,12 @@ export default function CommonBases({
         {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
           const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
           return (
-            <BaseWrapper onClick={() => !selected && onSelect(token)} disable={selected} key={token.address}>
+            <BaseWrapper
+              onClick={() => !selected && onSelect(token)}
+              disable={selected}
+              key={token.address}
+              style={{ direction: 'ltr' }}
+            >
               <CurrencyLogo currency={token} style={{ marginRight: 8 }} />
               <Text fontWeight={500} fontSize={16}>
                 {token.symbol}

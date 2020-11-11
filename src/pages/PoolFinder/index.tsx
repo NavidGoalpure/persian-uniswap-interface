@@ -129,10 +129,10 @@ export default function PoolFinder() {
             style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
           >
             <Text textAlign="center" fontWeight={500}>
-              Pool Found!
+              {t('poolFinderPage.poolFound')}!
             </Text>
             <StyledInternalLink to={`/pool`}>
-              <Text textAlign="center">Manage this pool.</Text>
+              <Text textAlign="center">{t('poolFinderPage.manageThisPool')}.</Text>
             </StyledInternalLink>
           </ColumnCenter>
         )}
@@ -144,7 +144,7 @@ export default function PoolFinder() {
             ) : (
               <LightCard padding="45px 10px">
                 <AutoColumn gap="sm" justify="center">
-                  <Text textAlign="center">You don’t have liquidity in this pool yet.</Text>
+                  <Text textAlign="center">{t('poolFinderPage.dontHaveLiquidity')}.</Text>
                   <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                     <Text textAlign="center">{t('liquidity.add')}</Text>
                   </StyledInternalLink>
@@ -154,9 +154,9 @@ export default function PoolFinder() {
           ) : validPairNoLiquidity ? (
             <LightCard padding="45px 10px">
               <AutoColumn gap="sm" justify="center">
-                <Text textAlign="center">No pool found.</Text>
+                <Text textAlign="center">{t('poolFinderPage.noPoolFound')}.</Text>
                 <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                  Create pool.
+                  {t('poolFinderPage.createPool')}.
                 </StyledInternalLink>
               </AutoColumn>
             </LightCard>
@@ -172,7 +172,7 @@ export default function PoolFinder() {
             <LightCard padding="45px 10px">
               <AutoColumn gap="sm" justify="center">
                 <Text textAlign="center">
-                  Loading
+                  {t('loading')}
                   <Dots />
                 </Text>
               </AutoColumn>

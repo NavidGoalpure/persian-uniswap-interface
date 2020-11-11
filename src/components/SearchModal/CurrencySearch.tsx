@@ -192,7 +192,7 @@ export function CurrencySearch({
             <Row>
               {selectedListInfo.current.logoURI ? (
                 <ListLogo
-                  style={addMarginToEndOfCSSObject('12')}
+                  style={addMarginToEndOfCSSObject('12px')}
                   logoURI={selectedListInfo.current.logoURI}
                   alt={`${selectedListInfo.current.name} list logo`}
                 />
