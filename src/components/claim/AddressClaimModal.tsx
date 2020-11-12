@@ -19,6 +19,7 @@ import { CardNoise, CardBGImage, CardBGImageSmaller } from '../earn/styled'
 import { useIsTransactionPending } from '../../state/transactions/hooks'
 import { TokenAmount } from '@uniswap/sdk'
 import { getEtherscanLink, shortenAddress } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -43,6 +44,7 @@ const ConfirmedIcon = styled(ColumnCenter)`
 `
 
 export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boolean; onDismiss: () => void }) {
+  const { t } = useTranslation()
   const { chainId } = useActiveWeb3React()
 
   // state for smart contract input
@@ -102,7 +104,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
             <CardNoise />
             <CardSection gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={500}>Claim UNI Token</TYPE.white>
+                <TYPE.white fontWeight={500}>{t('uni.claimTitle')}</TYPE.white>
                 <CloseIcon onClick={wrappedOnDismiss} style={{ zIndex: 99 }} stroke="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
@@ -112,14 +114,9 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
             <Break />
           </ModalUpper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
-            <TYPE.subHeader fontWeight={500}>
-              Enter an address to trigger a UNI claim. If the address has any claimable UNI it will be sent to them on
-              submission.
-            </TYPE.subHeader>
+            <TYPE.subHeader fontWeight={500}>{t('uni.uniClaimDesc')}</TYPE.subHeader>
             <AddressInputPanel value={typed} onChange={handleRecipientType} />
-            {parsedAddress && !hasAvailableClaim && (
-              <TYPE.error error={true}>Address has no available claim</TYPE.error>
-            )}
+            {parsedAddress && !hasAvailableClaim && <TYPE.error error={true}>{t('uni.addressHasNoClaim')}</TYPE.error>}
             <ButtonPrimary
               disabled={!isAddress(parsedAddress ?? '') || !hasAvailableClaim}
               padding="16px 16px"
@@ -128,7 +125,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               mt="1rem"
               onClick={onClaim}
             >
-              Claim UNI
+              {t('uni.claim')} UNI
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
@@ -151,7 +148,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
           <AutoColumn gap="100px" justify={'center'}>
             <AutoColumn gap="12px" justify={'center'}>
               <TYPE.largeHeader fontWeight={600} color="black">
-                {claimConfirmed ? 'Claimed' : 'Claiming'}
+                {claimConfirmed ? t('uni.claimed') : t('uni.claiming')}
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#ff007a'} fontWeight={800}>
@@ -160,7 +157,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               )}
               {parsedAddress && (
                 <TYPE.largeHeader fontWeight={600} color="black">
-                  for {shortenAddress(parsedAddress)}
+                  {t('for')} {shortenAddress(parsedAddress)}
                 </TYPE.largeHeader>
               )}
             </AutoColumn>
@@ -170,19 +167,20 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
                   <span role="img" aria-label="party-hat">
                     🎉{' '}
                   </span>
-                  Welcome to team Unicorn :){' '}
+                  {t('uni.wellcomeToTeam')} :)
                   <span role="img" aria-label="party-hat">
                     🎉
                   </span>
                 </TYPE.subHeader>
               </>
             )}
-            {attempting && !hash && (
-              <TYPE.subHeader color="black">Confirm this transaction in your wallet</TYPE.subHeader>
-            )}
+            {attempting && !hash && <TYPE.subHeader color="black">{t('transaction.confirmInWallet')}</TYPE.subHeader>}
             {attempting && hash && !claimConfirmed && chainId && hash && (
-              <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')} style={{ zIndex: 99 }}>
-                View transaction on Etherscan
+              <ExternalLink
+                href={getEtherscanLink(chainId, hash, 'transaction')}
+                style={{ zIndex: 99, direction: 'ltr' }}
+              >
+                {t('transaction.viewOnEtherscan')}
               </ExternalLink>
             )}
           </AutoColumn>

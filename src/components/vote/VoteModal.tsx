@@ -133,11 +133,11 @@ export default function VoteModal({ isOpen, onDismiss, proposalId, support }: Vo
           </ConfirmedIcon>
           <AutoColumn gap="100px" justify={'center'}>
             <AutoColumn gap="12px" justify={'center'}>
-              <TYPE.largeHeader>{t('transaction.viewOnEtherscan')}</TYPE.largeHeader>
+              <TYPE.largeHeader style={{ direction: 'ltr' }}>{t('transaction.viewOnEtherscan')}</TYPE.largeHeader>
             </AutoColumn>
             {chainId && (
               <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')} style={{ marginLeft: '4px' }}>
-                <TYPE.subHeader>{t('transaction.viewOnEtherscan')}</TYPE.subHeader>
+                <TYPE.subHeader style={{ direction: 'ltr' }}>{t('transaction.viewOnEtherscan')}</TYPE.subHeader>
               </ExternalLink>
             )}
           </AutoColumn>

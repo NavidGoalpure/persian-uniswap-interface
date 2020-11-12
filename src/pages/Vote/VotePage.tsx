@@ -26,6 +26,7 @@ import { useTokenBalance } from '../../state/wallet/hooks'
 
 const PageWrapper = styled(AutoColumn)`
   width: 100%;
+  direction: ltr;
 `
 
 const ProposalInfo = styled(AutoColumn)`
@@ -35,6 +36,7 @@ const ProposalInfo = styled(AutoColumn)`
   position: relative;
   max-width: 640px;
   width: 100%;
+  direction: inherit;
 `
 const ArrowWrapper = styled(StyledInternalLink)`
   display: flex;
@@ -56,6 +58,7 @@ const CardWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   width: 100%;
+  direction: inherit;
 `
 
 const StyledDataCard = styled(DataCard)`
@@ -64,6 +67,7 @@ const StyledDataCard = styled(DataCard)`
   background-color: ${({ theme }) => theme.bg1};
   height: fit-content;
   z-index: 2;
+  direction: inherit;
 `
 
 const ProgressWrapper = styled.div`
@@ -73,6 +77,7 @@ const ProgressWrapper = styled.div`
   border-radius: 4px;
   background-color: ${({ theme }) => theme.bg3};
   position: relative;
+  direction: inherit;
 `
 
 const Progress = styled.div<{ status: 'for' | 'against'; percentageString?: string }>`
@@ -80,22 +85,26 @@ const Progress = styled.div<{ status: 'for' | 'against'; percentageString?: stri
   border-radius: 4px;
   background-color: ${({ theme, status }) => (status === 'for' ? theme.green1 : theme.red1)};
   width: ${({ percentageString }) => percentageString};
+  direction: inherit;
 `
 
 const MarkDownWrapper = styled.div`
   max-width: 640px;
   overflow: hidden;
+  direction: inherit;
 `
 
 const WrapSmall = styled(RowBetween)`
   ${({ theme }) => theme.mediaWidth.upToSmall`
     align-items: flex-start;
     flex-direction: column;
+    direction: inherit;
   `};
 `
 
 const DetailText = styled.div`
   word-break: break-all;
+  direction: inherit;
 `
 
 export default function VotePage({
@@ -162,17 +171,17 @@ export default function VotePage({
   }
 
   return (
-    <PageWrapper gap="lg" justify="center">
+    <PageWrapper gap="lg" justify="center" dir="ltr">
       <VoteModal isOpen={showVoteModal} onDismiss={toggleVoteModal} proposalId={proposalData?.id} support={support} />
       <DelegateModal isOpen={showDelegateModal} onDismiss={toggelDelegateModal} title="Unlock Votes" />
       <ProposalInfo gap="lg" justify="start">
-        <RowBetween style={{ width: '100%' }}>
+        <RowBetween style={{ width: '100%', direction: 'inherit' }}>
           <ArrowWrapper to="/vote">
             <ArrowLeft size={20} /> All Proposals
           </ArrowWrapper>
           {proposalData && <ProposalStatus status={proposalData?.status ?? ''}>{proposalData?.status}</ProposalStatus>}
         </RowBetween>
-        <AutoColumn gap="10px" style={{ width: '100%' }}>
+        <AutoColumn gap="10px" style={{ width: '100%' }} dir="inherit">
           <TYPE.largeHeader style={{ marginBottom: '.5rem' }}>{proposalData?.title}</TYPE.largeHeader>
           <RowBetween>
             <TYPE.main>
@@ -198,7 +207,7 @@ export default function VotePage({
           )}
         </AutoColumn>
         {showVotingButtons ? (
-          <RowFixed style={{ width: '100%', gap: '12px' }}>
+          <RowFixed style={{ width: '100%', gap: '12px' }} dir="inherit">
             <ButtonPrimary
               padding="8px"
               borderRadius="8px"
@@ -223,11 +232,11 @@ export default function VotePage({
         ) : (
           ''
         )}
-        <CardWrapper>
-          <StyledDataCard>
-            <CardSection>
-              <AutoColumn gap="md">
-                <WrapSmall>
+        <CardWrapper dir="inherit">
+          <StyledDataCard dir="inherit">
+            <CardSection dir="inherit">
+              <AutoColumn gap="md" dir="inherit">
+                <WrapSmall dir="inherit">
                   <TYPE.black fontWeight={600}>For</TYPE.black>
                   <TYPE.black fontWeight={600}>
                     {' '}
@@ -235,15 +244,15 @@ export default function VotePage({
                   </TYPE.black>
                 </WrapSmall>
               </AutoColumn>
-              <ProgressWrapper>
+              <ProgressWrapper dir="inherit">
                 <Progress status={'for'} percentageString={forPercentage} />
               </ProgressWrapper>
             </CardSection>
           </StyledDataCard>
-          <StyledDataCard>
-            <CardSection>
-              <AutoColumn gap="md">
-                <WrapSmall>
+          <StyledDataCard dir="inherit">
+            <CardSection dir="inherit">
+              <AutoColumn gap="md" dir="inherit">
+                <WrapSmall dir="inherit">
                   <TYPE.black fontWeight={600}>Against</TYPE.black>
                   <TYPE.black fontWeight={600}>
                     {proposalData?.againstCount.toLocaleString(undefined, { maximumFractionDigits: 0 })}
@@ -256,7 +265,7 @@ export default function VotePage({
             </CardSection>
           </StyledDataCard>
         </CardWrapper>
-        <AutoColumn gap="md">
+        <AutoColumn gap="md" dir="inherit">
           <TYPE.mediumHeader fontWeight={600}>Details</TYPE.mediumHeader>
           {proposalData?.details?.map((d, i) => {
             return (
@@ -275,13 +284,13 @@ export default function VotePage({
             )
           })}
         </AutoColumn>
-        <AutoColumn gap="md">
+        <AutoColumn gap="md" dir="inherit">
           <TYPE.mediumHeader fontWeight={600}>Description</TYPE.mediumHeader>
           <MarkDownWrapper>
             <ReactMarkdown source={proposalData?.description} />
           </MarkDownWrapper>
         </AutoColumn>
-        <AutoColumn gap="md">
+        <AutoColumn gap="md" dir="inherit">
           <TYPE.mediumHeader fontWeight={600}>Proposer</TYPE.mediumHeader>
           <ExternalLink
             href={proposalData?.proposer && chainId ? getEtherscanLink(chainId, proposalData?.proposer, 'address') : ''}

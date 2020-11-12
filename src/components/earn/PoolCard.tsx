@@ -133,7 +133,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
       <StatContainer>
         <RowBetween>
-          <TYPE.white>{t('earnPage.totalDeposited')}</TYPE.white>
+          <TYPE.white>{t('uni.totalDeposited')}</TYPE.white>
           <TYPE.white>
             {valueOfTotalStakedAmountInUSDC
               ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`
@@ -141,10 +141,10 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           </TYPE.white>
         </RowBetween>
         <RowBetween>
-          <TYPE.white> {t('earnPage.poolRate')} </TYPE.white>
+          <TYPE.white> {t('uni.poolRate')} </TYPE.white>
           <TYPE.white>{`${stakingInfo.totalRewardRate
             ?.multiply(`${60 * 60 * 24 * 7}`)
-            ?.toFixed(0, { groupSeparator: ',' })} ${t('earnPage.uni/week')}`}</TYPE.white>
+            ?.toFixed(0, { groupSeparator: ',' })} ${t('uni.uni/week')}`}</TYPE.white>
         </RowBetween>
       </StatContainer>
 
@@ -153,7 +153,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           <Break />
           <BottomSection showBackground={true}>
             <TYPE.black color={'white'} fontWeight={500}>
-              <span>{t('earnPage.yourRate')}</span>
+              <span>{t('uni.yourRate')}</span>
             </TYPE.black>
 
             <TYPE.black style={{ textAlign: 'right' }} color={'white'} fontWeight={500}>
@@ -162,7 +162,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
               </span>
               {`${stakingInfo.rewardRate
                 ?.multiply(`${60 * 60 * 24 * 7}`)
-                ?.toSignificant(4, { groupSeparator: ',' })} ${t('earnPage.uni/week')}`}
+                ?.toSignificant(4, { groupSeparator: ',' })} ${t('uni.uni/week')}`}
             </TYPE.black>
           </BottomSection>
         </>

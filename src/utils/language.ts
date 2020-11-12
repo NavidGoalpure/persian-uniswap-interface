@@ -12,6 +12,7 @@ export function getCurrentLanguage(): string {
   return 'en'
 }
 export function setLanguageDirection(dir?: string): string {
+  if (dir === 'inherit') return 'inherit'
   if (dir === 'rtl') return 'rtl'
   if (dir === 'ltr') return 'ltr'
   return getLanguageDirection()

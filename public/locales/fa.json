@@ -125,6 +125,8 @@
   "iUnderstand": "فهمیدم",
   "continue": "ادامه",
   "initializing": "آماده سازی",
+  "for": "برای",
+  "withdraw": "برداشت",
   "liquidity": {
     "add": "افزودن نقدینگی",
     "remove": "حذف نقدینگی",
@@ -218,7 +220,18 @@
     "fakeTokenWarning4": "ممکن از هیچوقت قادر به فروش آن نباشید",
     "tokenImported": "توکن وارد شد"
   },
-
+  "poolPage": {
+    "yourLiquidity": "نقدینگی شما",
+    "yourLiquidityTooltip": "وقتی که شما نقدینگی خود را افزایش می‌دهید، توکن های  مربوط به استخر نقدینگی  را دریافت خواهید کرد که نشان‌دهنده سهم شما از استخر نقدینگی می‌باشد. اگر در استخر نقدینگی ای حضور دارید و آن را نمی‌بینید ، می‌توایند آن استخر نقدینگی  را از قسمت پایین اضافه کنید.",
+    "connectToWallet": "برای اینکه نقدینگی خود را ببینید، به یک $t(wallet) متصل شوید.",
+    "noLiquidity": "فاقد نقدینگی",
+    "migrateV1": "منتقل کردن سپرده ها از نسخه ۱ uniswap",
+    "v1Found": "نقدینگی ها موجود شما در نسخه 1 uniswap یافت شد",
+    "withoutPool": "استخر نقدینگی‌ای که به آن پیوسته‌اید را  نمی‌بینید؟",
+    "importIt": "اضافه‌اش کنید.",
+    "importNow": "همین حالا اضافه اش کنید .",
+    "accountAnalyticsAndFees": "آمار حساب و کارمزدهای تعلق گرفته"
+  },
   "poolFinderPage": {
     "createPool": "ساختن استخر",
     "noPoolFound": "استخری پیدا نشد",
@@ -281,21 +294,7 @@
     "showTransactionTitle": "تراکنش های شما اینجا نمایش داده می‌شود...",
     "connectedWith": "اتصال با {{name}}"
   },
-  "earnPage": {
-    "uni": "توکن UNI",
-    "miningAlertTitle": "با تامین نقدینگی به عنوان پاداش توکن UNI دریافت کنید",
-    "miningAlertDesc": "برای دریافت توکن UNI (توکنی برای حاکمیت و مدیریت جمعی در پروتکل یونی‌ سوآپ) نشان سرمایه گذاری (LP token) خود که مربوط به یکی از استخر های نقدینگی زیر است را سپرده‌گذاری کنید .",
-    "readMoreAboutUni": "مطالعه بیشتر درباره توکن UNI",
-    "noActiveRewards": "موقعیت فعالی برای دریافت پاداش وجود ندارد",
-    "totalDeposited": "مجموع سپرده‌ها در این استخر",
-    "poolRate": "نرخ سود استخر",
-    "yourRate": "نرخ سود شما",
-    "participatingPools": "استخرهای قابل مشارکت",
-    "uni/week": " UNI / هفته",
-    "rewardsBeginIn": " آغاز پاداش‌ دهی :",
-    "rewardsEndIn": "پایان مدت پاداش ‌دهی",
-    "RewardsHaveEnded": "پاداش دهی پایان یافته است"
-  },
+
   "votePage": {
     "title": "رای‌گیری",
     "uniswapGovernance": "حاکمیت و مدیریت جمعی در uniswap",
@@ -315,13 +314,44 @@
     "yourUNIBreakdown": "اطلاعات مربوط به «یونی» شما",
     "unclaimed": "مطالبه نشده",
     "claim": "مطالبه",
+    "claimed": "مطالبه شد",
+    "claiming": "در حال مطالبه",
     "uniPrice": "قیمت UNI",
     "uniInCirculation": "UNI در چرخه",
     "totalSupply": "Total Supply",
     "viewUNIAnalytics": "مشاهده آمارهای UNI",
     "claimYourUNI": "UNI های خود را مطالبه کنید",
     "uNIHasArrived": "UNI ها رسیدند",
-    "earningUNI": "به دست آودرن UNI"
+    "earningUNI": "به دست آودرن UNI",
+    "addressHasNoClaim": "به این آدرس هیچ UNI جدیدی تعلق نگرفته",
+    "uniClaimDesc": "برای بررسی امکان مطالبه UNI یک آدرس را وارد کنید. اگر آدرس دارای UNI قابل ادعا باشد، برای آن ارسال می‌شود.",
+    "claimTitle": "مطالبه توکن UNI",
+    "liquidityMining": "استخراج بر اساس نقدینگی",
+    "totalDeposits": "کل سپرده‌ها",
+    "uni": "توکن UNI",
+    "miningAlertTitle": "با تامین نقدینگی به عنوان پاداش توکن UNI دریافت کنید",
+    "miningAlertDesc": "برای دریافت توکن UNI (توکنی برای حاکمیت و مدیریت جمعی در پروتکل یونی‌ سوآپ) توکن سرمایه گذاری (LP token) خود که مربوط به یکی از استخر های نقدینگی زیر است را سپرده‌گذاری کنید .",
+    "readMoreAboutUni": "مطالعه بیشتر درباره توکن UNI",
+    "noActiveRewards": "موقعیت فعالی برای دریافت پاداش وجود ندارد",
+    "totalDeposited": "مجموع سپرده‌ها در این استخر",
+    "poolRate": "نرخ سود استخر",
+    "yourRate": "نرخ سود شما",
+    "participatingPools": "استخرهای قابل مشارکت",
+    "uni/week": " UNI / هفته",
+    "rewardsBeginIn": " آغاز پاداش‌ دهی :",
+    "rewardsEndIn": "پایان مدت پاداش ‌دهی",
+    "RewardsHaveEnded": "پاداش دهی پایان یافته است",
+    "yourLiquidityDeposits": "سپرده‌های نقدینگی شما",
+    "yourUnclaimedUNI": "UNI های مطالبه نشده شما",
+    "automaticClaimDesc": "وقتی شما برداشت می‌کنید، قرارداد هوشمند به صورت اتوماتیک از طرف شما UNI هایی که طلبکارید را مطالبه می‌کند!",
+    "step1": "مرحله 1. توکن‌های نقدینگی UNI-V2 را دریافت کنید",
+    "step1Desc": "شما به توکن های UNI-V2 LP نیاز دارید. هنگامی که نقدینگی را به استخر {{pair}} اضافه کردید ، می توانید توکن‌های نقدینگی خود را در این صفحه مشارکت دهید.",
+    "addLiquidity": "افزودن نقدینگی {{pair}}",
+    "uniV2LPTokensAvailable": "توکن UNI-V2 LP آماده می‌باشد",
+    "depositUniV2LPTokens": "واریز توکن‌های UNI-V2 LP",
+    "weeklyRewards": "پاداش‌های هفتگی",
+    "deposit": "واریز",
+    "depositingLiquidity": "واریز نقدینگی"
   },
   "popup": {
     "popup": {
