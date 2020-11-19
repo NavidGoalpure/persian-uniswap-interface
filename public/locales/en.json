@@ -214,7 +214,8 @@
     "fakeTokenWarning2": "This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research when interacting with arbitrary ERC20 tokens.",
     "fakeTokenWarning3": "If you purchase an arbitrary token, ",
     "fakeTokenWarning4": "you may be unable to sell it back",
-    "tokenImported": "Token imported"
+    "tokenImported": "Token imported",
+    "priceImpactAlert": "This swap has a price impact of at least {{percent}}%. Please type the word 'confirm' to continue with this swap."
   },
   "poolPage": {
     "yourLiquidity": "Your Liquidity",

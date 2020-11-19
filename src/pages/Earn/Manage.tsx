@@ -31,6 +31,7 @@ import useUSDCPrice from '../../utils/useUSDCPrice'
 import { BIG_INT_ZERO } from '../../constants'
 import { useTranslation } from 'react-i18next'
 import { addMarginToEndOfCSSObject } from 'utils/language'
+import { BIG_INT_ZERO, BIG_INT_SECONDS_IN_WEEK } from '../../constants'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -180,9 +181,11 @@ export default function Manage({
           <AutoColumn gap="sm">
             <TYPE.body style={{ margin: 0 }}>{t('uni.poolRate')}</TYPE.body>
             <TYPE.body fontSize={24} fontWeight={500}>
-              {stakingInfo?.totalRewardRate
-                ?.multiply((60 * 60 * 24 * 7).toString())
-                ?.toFixed(0, { groupSeparator: ',' }) ?? '-'}
+              {stakingInfo?.active
+                ? stakingInfo?.totalRewardRate
+                    ?.multiply(BIG_INT_SECONDS_IN_WEEK)
+                    ?.toFixed(0, { groupSeparator: ',' }) ?? '-'
+                : '0'}
               {t('uni.uni/week')}
             </TYPE.body>
           </AutoColumn>
@@ -296,9 +299,11 @@ export default function Manage({
                   <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
                     ⚡
                   </span>
-                  {stakingInfo?.rewardRate
-                    ?.multiply((60 * 60 * 24 * 7).toString())
-                    ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
+                  {stakingInfo?.active
+                    ? stakingInfo?.rewardRate
+                        ?.multiply(BIG_INT_SECONDS_IN_WEEK)
+                        ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'
+                    : '0'}
                   {t('uni.uni/week')}
                 </TYPE.black>
               </RowBetween>
@@ -314,9 +319,11 @@ export default function Manage({
 
         {!showAddLiquidityButton && (
           <DataRow style={{ marginBottom: '1rem' }}>
-            <ButtonPrimary padding="8px" borderRadius="8px" width="160px" onClick={handleDepositClick}>
-              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? t('deposit') : t('uni.depositUniV2LPTokens')}
-            </ButtonPrimary>
+            {stakingInfo && stakingInfo.active && (
+              <ButtonPrimary padding="8px" borderRadius="8px" width="160px" onClick={handleDepositClick}>
+                {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? t('deposit') : t('uni.depositUniV2LPTokens')}
+              </ButtonPrimary>
+            )}
 
             {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) && (
               <>
@@ -332,7 +339,7 @@ export default function Manage({
             )}
           </DataRow>
         )}
-        {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
+        {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : !stakingInfo?.active ? null : (
           <TYPE.main>
             {userLiquidityUnstaked.toSignificant(6)} {t('uni.uniV2LPTokensAvailable')}
           </TYPE.main>

@@ -16,6 +16,7 @@ import { usePair } from '../../data/Reserves'
 import useUSDCPrice from '../../utils/useUSDCPrice'
 import { useTranslation } from 'react-i18next'
 import { addMarginToStartOfCSSObject } from '../../utils/language'
+import { BIG_INT_SECONDS_IN_WEEK } from '../../constants'
 
 const StatContainer = styled.div`
   display: flex;
@@ -57,11 +58,6 @@ const TopSection = styled.div`
     grid-template-columns: 48px 1fr 96px;
   `};
 `
-
-// const APR = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-// `
 
 const BottomSection = styled.div<{ showBackground: boolean }>`
   padding: 12px 16px;
@@ -142,9 +138,15 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
         </RowBetween>
         <RowBetween>
           <TYPE.white> {t('uni.poolRate')} </TYPE.white>
-          <TYPE.white>{`${stakingInfo.totalRewardRate
-            ?.multiply(`${60 * 60 * 24 * 7}`)
-            ?.toFixed(0, { groupSeparator: ',' })} ${t('uni.uni/week')}`}</TYPE.white>
+          <TYPE.white>
+            {stakingInfo
+              ? stakingInfo.active
+                ? `${stakingInfo.totalRewardRate
+                    ?.multiply(BIG_INT_SECONDS_IN_WEEK)
+                    ?.toFixed(0, { groupSeparator: ',' })} ${t('uni.uni/week')}`
+                : `0 ${t('uni.uni/week')}`
+              : '-'}
+          </TYPE.white>
         </RowBetween>
       </StatContainer>
 
@@ -160,9 +162,13 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
               <span role="img" aria-label="wizard-icon" style={{ marginRight: '0.5rem' }}>
                 ⚡
               </span>
-              {`${stakingInfo.rewardRate
-                ?.multiply(`${60 * 60 * 24 * 7}`)
-                ?.toSignificant(4, { groupSeparator: ',' })} ${t('uni.uni/week')}`}
+              {stakingInfo
+                ? stakingInfo.active
+                  ? `${stakingInfo.rewardRate
+                      ?.multiply(BIG_INT_SECONDS_IN_WEEK)
+                      ?.toSignificant(4, { groupSeparator: ',' })} ${t('uni.uni/week')}`
+                  : `0 ${t('uni.uni/week')}`
+                : '-'}
             </TYPE.black>
           </BottomSection>
         </>
