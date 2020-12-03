@@ -167,7 +167,11 @@
     "readMoreProvidingLiquidity": "Read more about providing liquidity",
     "viewFeesAndAnalytics": "View accrued fees and analytics",
     "manageLiquidityinRewardsPool": "Manage Liquidity in Rewards Pool",
-    "poolTokensInRewardsPool": "Pool tokens in rewards pool"
+    "poolTokensInRewardsPool": "Pool tokens in rewards pool",
+    "withdrawDepositedLiquidity": "Withdraw deposited liquidity",
+    "depositedLiquidity": "Deposited liquidity",
+    "withdrawLiquidityDesc": "When you withdraw, your UNI is claimed and your liquidity is removed from the mining pool.",
+    "withdrawing": "Withdrawing"
   },
   "transaction": {
     "viewOnEtherscan": " ٰView transaction in Etherscan",
@@ -314,6 +318,8 @@
     "claim": "claim",
     "claimed": "Claimed",
     "claiming": "Claiming",
+    "claimedUNI": "Claimed UNI",
+    "unclaimedUNI": "Unclaimed UNI",
     "uniPrice": "UNI Price",
     "uniInCirculation": "UNI in circulation",
     "totalSupply": "Total Supply",
@@ -350,7 +356,9 @@
     "depositUniV2LPTokens": "Deposit UNI-V2 LP Tokens",
     "weeklyRewards": "Weekly Rewards",
     "deposit": "Deposit",
-    "depositingLiquidity": "Depositing Liquidity"
+    "depositingLiquidity": "Depositing Liquidity",
+    "claimAccumulatedUNIRewards": "Claim accumulated UNI rewards",
+    "claimWithotWithdrawingDesc": "When you claim without withdrawing your liquidity remains in the mining pool."
   },
   "popup": {
     "theTokenList": "The token list ",

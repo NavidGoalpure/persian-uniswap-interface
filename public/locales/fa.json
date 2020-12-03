@@ -13,7 +13,7 @@
   "estimated": "تخمین",
   "balance": "موجودی: {{ balanceInput }}",
   "unlock": "بازگشایی",
-  "pending": "انتظار...",
+  "pending": "درحال انتظار",
   "selectToken": "انتخاب توکن ",
   "searchOrPaste": " لطفا اسم یا سَمبل و یا آدرس توکن مورد نظر خود را سرچ کنید",
   "searchOrPasteMobile": "نام یا سمبل و یا آدرس",
@@ -167,7 +167,11 @@
     "readMoreProvidingLiquidity": "مطالعه بیشتر درباره سپرده‌گذاری",
     "viewFeesAndAnalytics": "مشاهده کارمزدها و آمارها",
     "manageLiquidityinRewardsPool": "مدیریت نقدینگی در استخر پاداش",
-    "poolTokensInRewardsPool": "توکن‌های استخر در استخر پاداش"
+    "poolTokensInRewardsPool": "توکن‌های استخر در استخر پاداش",
+    "withdrawDepositedLiquidity": "برداشت نقدینگی از استخر",
+    "depositedLiquidity": "نقدینگی واگذار شده",
+    "withdrawLiquidityDesc": "وقتی که شما عملیات «برداشت» را انجام می‌دهید، UNI های شما به همراه نقدینگی شما از استخر خارج شده و به ولت شما انتقال می‌یابند.",
+    "withdrawing": "در حال برداشت"
   },
   "transaction": {
     "viewOnEtherscan": "Etherscan مشاهده تراکنش در",
@@ -317,6 +321,8 @@
     "claim": "مطالبه",
     "claimed": "مطالبه شد",
     "claiming": "در حال مطالبه",
+    "claimedUNI": "UNI مطالبه شد",
+    "unclaimedUNI": "UNI های مطالبه نشده",
     "uniPrice": "قیمت UNI",
     "uniInCirculation": "UNI در چرخه",
     "totalSupply": "Total Supply",
@@ -344,7 +350,7 @@
     "RewardsHaveEnded": "پاداش دهی پایان یافته است",
     "yourLiquidityDeposits": "سپرده‌های نقدینگی شما",
     "yourUnclaimedUNI": "UNI های مطالبه نشده شما",
-    "automaticClaimDesc": "وقتی شما برداشت می‌کنید، قرارداد هوشمند به صورت اتوماتیک از طرف شما UNI هایی که طلبکارید را مطالبه می‌کند!",
+    "automaticClaimDesc": "وقتی شما عملیات «برداشت» را اجرا می‌کنید، قرارداد هوشمند به صورت اتوماتیک از طرف شما UNI هایی که طلبکارید را مطالبه می‌کند!",
     "step1": "مرحله 1. توکن‌های نقدینگی UNI-V2 را دریافت کنید",
     "step1Desc": "شما به توکن های UNI-V2 LP نیاز دارید. هنگامی که نقدینگی را به استخر {{pair}} اضافه کردید ، می توانید توکن‌های نقدینگی خود را در این صفحه مشارکت دهید.",
     "addLiquidity": "افزودن نقدینگی {{pair}}",
@@ -352,7 +358,9 @@
     "depositUniV2LPTokens": "واریز توکن‌های UNI-V2 LP",
     "weeklyRewards": "پاداش‌های هفتگی",
     "deposit": "واریز",
-    "depositingLiquidity": "واریز نقدینگی"
+    "depositingLiquidity": "واریز نقدینگی",
+    "claimAccumulatedUNIRewards": "مطالبه پاداش انباشته UNI",
+    "claimWithotWithdrawingDesc": "وقتی شما UNI خود را بدون «برداشت» توکن ها از استخر، مطالبه می‌کنید،نقدینگی شما در استخر باقی می‌ماند."
   },
   "popup": {
     "popup": {
