@@ -3,17 +3,20 @@ import { Box } from 'rebass/styled-components'
 import { setLanguageDirection } from '../../utils/language'
 
 const Row = styled(Box)<{
+  dir?: string
+  width?: string
   align?: string
+  justify?: string
   padding?: string
   border?: string
   borderRadius?: string
-  dir?: string
 }>`
-  width: 100%;
   direction: ${({ dir }) => setLanguageDirection(dir)};
+  width: ${({ width }) => width ?? '100%'};
   display: flex;
   padding: 0;
-  align-items: ${({ align }) => (align ? align : 'center')};
+  align-items: ${({ align }) => align ?? 'center'};
+  justify-content: ${({ justify }) => justify ?? 'flex-start'};
   padding: ${({ padding }) => padding};
   border: ${({ border }) => border};
   border-radius: ${({ borderRadius }) => borderRadius};

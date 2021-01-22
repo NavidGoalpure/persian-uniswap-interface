@@ -6,7 +6,11 @@ import { NavLink, Link as HistoryLink } from 'react-router-dom'
 
 import { ArrowLeft } from 'react-feather'
 import { RowBetween } from '../Row'
-import QuestionHelper from '../QuestionHelper'
+// import QuestionHelper from '../QuestionHelper'
+import Settings from '../Settings'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from 'state'
+import { resetMintState } from 'state/mint/actions'
 
 const Tabs = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
@@ -70,29 +74,37 @@ export function FindPoolTabs() {
   const { t } = useTranslation()
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem' }} dir="ltr">
+      <RowBetween style={{ padding: '1rem 1rem 0 1rem' }} dir="ltr">
         <HistoryLink to="/pool">
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText>{t('findPage.title')}</ActiveText>
-        <QuestionHelper text={t('findPage.titleTooltip')} />
+        <Settings />
       </RowBetween>
     </Tabs>
   )
 }
 
 export function AddRemoveTabs({ adding, creating }: { adding: boolean; creating: boolean }) {
+  // reset states on back
   const { t } = useTranslation()
+  const dispatch = useDispatch<AppDispatch>()
+
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem' }} dir="ltr">
-        <HistoryLink to="/pool">
+      <RowBetween style={{ padding: '1rem 1rem 0 1rem' }} dir="ltr">
+        <HistoryLink
+          to="/pool"
+          onClick={() => {
+            adding && dispatch(resetMintState())
+          }}
+        >
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText>
           {creating ? t('liquidity.creating') : adding ? t('liquidity.add') : t('liquidity.remove')}
         </ActiveText>
-        <QuestionHelper text={adding ? t('liquidity.addTooltip') : t('liquidity.removeTooltip')} />
+        <Settings />
       </RowBetween>
     </Tabs>
   )

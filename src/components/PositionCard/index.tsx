@@ -8,10 +8,10 @@ import styled from 'styled-components/macro'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalance } from '../../state/wallet/hooks'
-import { ExternalLink, TYPE, HideExtraSmall, ExtraSmallOnly } from '../../theme'
+import { ExternalLink, TYPE } from '../../theme'
 import { currencyId } from '../../utils/currencyId'
 import { unwrappedToken } from '../../utils/wrappedCurrency'
-import { ButtonPrimary, ButtonSecondary, ButtonEmpty, ButtonUNIGradient } from '../Button'
+import { ButtonPrimary, ButtonSecondary, ButtonEmpty } from '../Button'
 import { transparentize } from 'polished'
 import { CardNoise } from '../earn/styled'
 import { useColor } from '../../hooks/useColor'
@@ -200,18 +200,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
             <Text fontWeight={500} fontSize={20}>
               {!currency0 || !currency1 ? <Dots>{t('loading')}</Dots> : `${currency0.symbol}/${currency1.symbol}`}
             </Text>
-            {!!stakedBalance && (
-              <ButtonUNIGradient as={Link} to={`/uni/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                <HideExtraSmall>{t('uni.earningUNI')}</HideExtraSmall>
-                <ExtraSmallOnly>
-                  <span role="img" aria-label="bolt">
-                    ⚡
-                  </span>
-                </ExtraSmallOnly>
-              </ButtonUNIGradient>
-            )}
           </AutoRow>
-
           <RowFixed gap="8px">
             <ButtonEmpty
               padding="6px 8px"
@@ -244,6 +233,7 @@ export default function FullPositionCard({ pair, border, stakedBalance }: Positi
                 {userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}
               </Text>
             </FixedHeightRow>
+
             {stakedBalance && (
               <FixedHeightRow>
                 <Text fontSize={16} fontWeight={500}>

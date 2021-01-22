@@ -109,7 +109,7 @@ export default function Vote() {
 
   // toggle for showing delegation modal
   const showDelegateModal = useModalOpen(ApplicationModal.DELEGATE)
-  const toggelDelegateModal = useToggleDelegateModal()
+  const toggleDelegateModal = useToggleDelegateModal()
 
   // get data to list all proposals
   const allProposals: ProposalData[] = useAllProposalData()
@@ -128,7 +128,7 @@ export default function Vote() {
     <PageWrapper gap="lg" justify="center">
       <DelegateModal
         isOpen={showDelegateModal}
-        onDismiss={toggelDelegateModal}
+        onDismiss={toggleDelegateModal}
         title={showUnlockVoting ? t('votePage.unlockVotes') : t('votePage.updateDelegation')}
       />
       <TopSection gap="md">
@@ -167,7 +167,7 @@ export default function Vote() {
               style={{ width: 'fit-content' }}
               padding="8px"
               borderRadius="8px"
-              onClick={toggelDelegateModal}
+              onClick={toggleDelegateModal}
             >
               {t('votePage.unlockVotes')}
             </ButtonPrimary>
@@ -201,7 +201,7 @@ export default function Vote() {
                   >
                     {userDelegatee === account ? 'Self' : shortenAddress(userDelegatee)}
                   </StyledExternalLink>
-                  <TextButton onClick={toggelDelegateModal} style={addMarginToStartOfCSSObject('4px')}>
+                  <TextButton onClick={toggleDelegateModal} style={addMarginToStartOfCSSObject('4px')}>
                     ({t('edit')})
                   </TextButton>
                 </AddressButton>

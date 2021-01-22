@@ -165,7 +165,13 @@ export default function Pool() {
                 <ResponsiveButtonSecondary as={Link} padding="6px 8px" to="/create/ETH">
                   {t('liquidity.creating')}
                 </ResponsiveButtonSecondary>
-                <ResponsiveButtonPrimary id="join-pool-button" as={Link} padding="6px 8px" to="/add/ETH">
+                <ResponsiveButtonPrimary
+                  id="join-pool-button"
+                  as={Link}
+                  padding="6px 8px"
+                  borderRadius="12px"
+                  to="/add/ETH"
+                >
                   <Text fontWeight={500} fontSize={16}>
                     {t('liquidity.add')}
                   </Text>

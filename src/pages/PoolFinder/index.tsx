@@ -19,6 +19,8 @@ import { currencyId } from '../../utils/currencyId'
 import AppBody from '../AppBody'
 import { Dots } from '../Pool/styleds'
 import { useTranslation } from 'react-i18next'
+import { BlueCard } from '../../components/Card'
+import { TYPE } from '../../theme'
 
 enum Fields {
   TOKEN0 = 0,
@@ -79,7 +81,15 @@ export default function PoolFinder() {
   return (
     <AppBody>
       <FindPoolTabs />
-      <AutoColumn gap="md">
+      <AutoColumn style={{ padding: '1rem' }} gap="md">
+        <BlueCard>
+          <AutoColumn gap="10px">
+            {/* TODO: transle this */}
+            <TYPE.link fontWeight={400} color={'primaryText1'}>
+              <b>Tip:</b> Use this tool to find pairs that don&apos;t automatically appear in the interface.
+            </TYPE.link>
+          </AutoColumn>
+        </BlueCard>
         <ButtonDropdownLight
           onClick={() => {
             setShowSearch(true)
