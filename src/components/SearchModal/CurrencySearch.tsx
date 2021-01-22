@@ -1,4 +1,3 @@
-//TODO: search for english words  in tis file*
 import { Currency, ETHER, Token } from '@uniswap/sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ReactGA from 'react-ga'
@@ -24,6 +23,7 @@ import useTheme from 'hooks/useTheme'
 import ImportRow from './ImportRow'
 import { Edit } from 'react-feather'
 import { ButtonLight } from 'components/Button'
+import { addMarginToEndOfCSSObject, getLanguageDirection } from 'utils/language'
 
 const ContentWrapper = styled(Column)`
   width: 100%;
@@ -243,8 +243,8 @@ export function CurrencySearch({
         </div>
       ) : (
         <Column style={{ padding: '20px', height: '100%' }}>
-          <TYPE.main color={theme.text3} textAlign="center" mb="20px">
-            No results found in active lists.
+          <TYPE.main color={theme.text3} textAlign="center" mb="20px" style={{ direction: getLanguageDirection() }}>
+            {t('liquidity.noResult')}
           </TYPE.main>
           {inactiveTokens &&
             inactiveTokens.length > 0 &&
@@ -260,8 +260,11 @@ export function CurrencySearch({
                   onClick={() => setShowExpanded(!showExpanded)}
                 >
                   {!showExpanded
-                    ? `Show ${inactiveTokens.length} more inactive ${inactiveTokens.length === 1 ? 'token' : 'tokens'}`
-                    : 'Hide expanded search'}
+                    ? t('liquidity.showInactiveTokens', {
+                        inactiveTokenLength: inactiveTokens.length,
+                        label: inactiveTokens.length === 1 ? 'token' : 'tokens'
+                      })
+                    : t('liquidity.hideExpandedSearch')}
                 </ButtonLight>
               </Row>
             )}
@@ -282,8 +285,11 @@ export function CurrencySearch({
               onClick={() => setShowExpanded(!showExpanded)}
             >
               {!showExpanded
-                ? `Show ${inactiveTokens.length} more inactive ${inactiveTokens.length === 1 ? 'token' : 'tokens'}`
-                : 'Hide expanded search'}
+                ? t('liquidity.showInactiveTokens', {
+                    inactiveTokenLength: inactiveTokens.length,
+                    label: inactiveTokens.length === 1 ? 'token' : 'tokens'
+                  })
+                : t('liquidity.hideExpandedSearch')}
             </ButtonLight>
           </Row>
         )}
@@ -291,10 +297,10 @@ export function CurrencySearch({
         <Row justify="center">
           <ButtonText onClick={showManageView} color={theme.blue1} className="list-token-manage-button">
             <RowFixed>
-              <IconWrapper size="16px" marginRight="6px">
+              <IconWrapper size="16px" style={addMarginToEndOfCSSObject('6px')}>
                 <Edit />
               </IconWrapper>
-              <TYPE.main color={theme.blue1}>Manage</TYPE.main>
+              <TYPE.main color={theme.blue1}>{t('manage')}</TYPE.main>
             </RowFixed>
           </ButtonText>
         </Row>

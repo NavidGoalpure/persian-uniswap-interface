@@ -127,6 +127,9 @@
   "initializing": "Initializing",
   "for": "for",
   "withdraw": "Withdraw",
+  "tip": "Tip",
+  "lists": "Lists",
+  "tokens": "Tokens",
   "liquidity": {
     "add": "Add Liquidity",
     "remove": "Remove Liquidity",
@@ -171,7 +174,11 @@
     "withdrawDepositedLiquidity": "Withdraw deposited liquidity",
     "depositedLiquidity": "Deposited liquidity",
     "withdrawLiquidityDesc": "When you withdraw, your UNI is claimed and your liquidity is removed from the mining pool.",
-    "withdrawing": "Withdrawing"
+    "withdrawing": "Withdrawing",
+    "tipDesc": " When you add liquidity, you will receive pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.",
+    "noResult": "No results found in active lists.",
+    "showInactiveTokens": "Show {{inactiveTokenLength}} more inactive {{label}}",
+    "hideExpandedSearch": "Hide expanded search"
   },
   "transaction": {
     "viewOnEtherscan": " ٰView transaction in Etherscan",

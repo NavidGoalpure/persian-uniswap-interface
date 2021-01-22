@@ -108,15 +108,6 @@ export default function TokenWarningModal({
           </AutoRow>
           <TYPE.body color={'red2'}>{t('swapPage.fakeTokenWarning1')}</TYPE.body>
           <TYPE.body color={'red2'}>{t('swapPage.fakeTokenWarning2')}</TYPE.body>
-          {/* TODO: translate this */}
-          <TYPE.body color={'red2'}>
-            Anyone can create an ERC20 token on Ethereum with <em>any</em> name, including creating fake versions of
-            existing tokens and tokens that claim to represent projects that do not have a token.
-          </TYPE.body>
-          <TYPE.body color={'red2'}>
-            This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research
-            when interacting with arbitrary ERC20 tokens.
-          </TYPE.body>
           <TYPE.body color={'red2'}>
             {t('swapPage.fakeTokenWarning3')} <strong>{t('swapPage.fakeTokenWarning4')}.</strong>
           </TYPE.body>

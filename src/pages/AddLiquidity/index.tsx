@@ -356,9 +356,7 @@ export default function AddLiquidity({
                   <BlueCard>
                     <AutoColumn gap="10px">
                       <TYPE.link fontWeight={400} color={'primaryText1'}>
-                        <b>Tip:</b> When you add liquidity, you will receive pool tokens representing your position.
-                        These tokens automatically earn fees proportional to your share of the pool, and can be redeemed
-                        at any time.
+                        <b>{t('tip')}:</b> {t('liquidity.tipDesc')}
                       </TYPE.link>
                     </AutoColumn>
                   </BlueCard>

@@ -10,6 +10,7 @@ import { ManageLists } from './ManageLists'
 import ManageTokens from './ManageTokens'
 import { TokenList } from '@uniswap/token-lists'
 import { CurrencyModalView } from './CurrencySearchModal'
+import { useTranslation } from 'react-i18next'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -56,14 +57,14 @@ export default function Manage({
 }) {
   // toggle between tokens and lists
   const [showLists, setShowLists] = useState(true)
-
+  const { t } = useTranslation()
   return (
     <Wrapper>
       <PaddedColumn>
         <RowBetween>
           <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.search)} />
           <Text fontWeight={500} fontSize={20}>
-            Manage
+            {t('manage')}
           </Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
@@ -72,10 +73,10 @@ export default function Manage({
       <PaddedColumn style={{ paddingBottom: 0 }}>
         <ToggleWrapper>
           <ToggleOption onClick={() => setShowLists(!showLists)} active={showLists}>
-            Lists
+            {t('lists')}
           </ToggleOption>
           <ToggleOption onClick={() => setShowLists(!showLists)} active={!showLists}>
-            Tokens
+            {t('tokens')}
           </ToggleOption>
         </ToggleWrapper>
       </PaddedColumn>

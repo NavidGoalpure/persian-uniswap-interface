@@ -1,3 +1,4 @@
+//TODO: translate this
 import React, { useState } from 'react'
 import { Token, Currency } from '@uniswap/sdk'
 import styled from 'styled-components'
