@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import { Box } from 'rebass/styled-components'
-import { setLanguageDirection } from '../../utils/language'
+import { CssDirection, setLanguageDirection } from '../../utils/language'
 
 const Row = styled(Box)<{
-  dir?: string
+  dir?: CssDirection
   width?: string
   align?: string
   justify?: string

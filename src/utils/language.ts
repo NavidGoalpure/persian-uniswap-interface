@@ -1,17 +1,19 @@
 import i18next from 'i18next'
+
 import { CSSObject } from 'styled-components'
 export enum RtlLanguages {
   fa = 'fa'
 }
+export type CssDirection = 'inherit' | 'initial' | '-moz-initial' | 'revert' | 'unset' | 'ltr' | 'rtl' | undefined
 
-export function getLanguageDirection(): string {
+export function getLanguageDirection(): CssDirection {
   return i18next.language in RtlLanguages ? 'rtl' : 'ltr'
 }
 export function getCurrentLanguage(): string {
   if (i18next && i18next?.languages) return i18next?.languages[0]
   return 'en'
 }
-export function setLanguageDirection(dir?: string): string {
+export function setLanguageDirection(dir?: CssDirection): CssDirection {
   if (dir === 'inherit') return 'inherit'
   if (dir === 'rtl') return 'rtl'
   if (dir === 'ltr') return 'ltr'

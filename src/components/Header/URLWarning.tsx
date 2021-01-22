@@ -5,6 +5,7 @@ import { AlertTriangle, X } from 'react-feather'
 import { useURLWarningToggle, useURLWarningVisible } from '../../state/user/hooks'
 import { isMobile } from 'react-device-detect'
 import { useTranslation } from 'react-i18next'
+import { addMarginToEndOfCSSObject, setLanguageDirection } from 'utils/language'
 
 const PhishAlert = styled.div<{ isActive: any }>`
   width: 100%;
@@ -30,8 +31,8 @@ export default function URLWarning() {
 
   return isMobile ? (
     <PhishAlert isActive={showURLWarning}>
-      <div style={{ display: 'flex' }}>
-        <AlertTriangle style={{ marginRight: 6 }} size={12} /> {t('makeSureURL')}
+      <div style={{ display: 'flex', direction: setLanguageDirection() }}>
+        <AlertTriangle style={addMarginToEndOfCSSObject('6px')} size={12} /> {t('makeSureURL')}
         <code style={{ padding: '0 4px', display: 'inline', fontWeight: 'bold' }}>{t('siteAdress')}</code>
       </div>
       <StyledClose size={12} onClick={toggleURLWarning} />

@@ -30,7 +30,7 @@ import Swap from './Swap'
 import { OpenClaimAddressModalAndRedirectToSwap, RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 import Vote from './Vote'
 import VotePage from './Vote/VotePage'
-import { setLanguageDirection } from '../utils/language'
+import { CssDirection, setLanguageDirection } from '../utils/language'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
 `
 
-const BodyWrapper = styled.div<{ dir?: string }>`
+const BodyWrapper = styled.div<{ dir?: CssDirection }>`
   direction: ${({ dir }) => setLanguageDirection(dir)};
   display: flex;
   flex-direction: column;

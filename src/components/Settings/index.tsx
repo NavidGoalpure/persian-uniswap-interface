@@ -15,7 +15,7 @@ import { TYPE } from '../../theme'
 import { ButtonError } from '../Button'
 import { AutoColumn } from '../Column'
 import Modal from '../Modal'
-import { setLanguageDirection } from '../../utils/language'
+import { CssDirection, setLanguageDirection } from '../../utils/language'
 import { useTranslation } from 'react-i18next'
 import QuestionHelper from '../QuestionHelper'
 import { RowBetween, RowFixed } from '../Row'
@@ -86,7 +86,7 @@ const StyledMenu = styled.div`
   text-align: left;
 `
 
-const MenuFlyout = styled.span<{ dir?: string }>`
+const MenuFlyout = styled.span<{ dir?: CssDirection }>`
   direction: ${({ dir }) => setLanguageDirection(dir)};
   min-width: 20.125rem;
   background-color: ${({ theme }) => theme.bg2};
