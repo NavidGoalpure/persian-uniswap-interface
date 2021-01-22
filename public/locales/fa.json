@@ -249,7 +249,6 @@
     "interfaceSettings": "تنظیمات ظاهری",
     "toggleExpertMode": " تغییر به حالت حرفه ای",
     "toggleExpertModeTooltip": ".با روشن کردن این گزینه، «ماژول های محافظت از ضرر بیش از حد» کنار گذاشته می‌شود. این کار ریسک بالایی دارد",
-    "toggleDarkMode": "زمینه تیره",
     "slippageTolerance": "تحمل لغزش",
     "slippageToleranceTooltip": "اگر قیمت بیشتر از این درصد افت پیدا کند تراکنش شما مرجوع می‌شود.",
     "transactionDeadline": "مهلت تراکنش",
@@ -329,7 +328,7 @@
     "viewUNIAnalytics": "مشاهده آمارهای UNI",
     "claimYourUNI": "UNI های خود را مطالبه کنید",
     "uNIHasArrived": "UNI ها رسیدند",
-    "earningUNI": "به دست آودرن UNI",
+
     "addressHasNoClaim": "به این آدرس هیچ UNI جدیدی تعلق نگرفته",
     "uniClaimDesc": "برای بررسی امکان مطالبه UNI یک آدرس را وارد کنید. اگر آدرس دارای UNI قابل ادعا باشد، برای آن ارسال می‌شود.",
     "claimTitle": "مطالبه توکن UNI",
