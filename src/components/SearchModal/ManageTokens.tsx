@@ -15,6 +15,7 @@ import ImportRow from './ImportRow'
 import useTheme from '../../hooks/useTheme'
 
 import { CurrencyModalView } from './CurrencySearchModal'
+import { useTranslation } from 'react-i18next'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -92,7 +93,7 @@ export default function ManageTokens({
       ))
     )
   }, [userAddedTokens, chainId, removeToken])
-
+  const { t } = useTranslation()
   return (
     <Wrapper>
       <Column style={{ width: '100%', flex: '1 1' }}>
@@ -108,7 +109,9 @@ export default function ManageTokens({
               onChange={handleInput}
             />
           </Row>
-          {searchQuery !== '' && !isAddressSearch && <TYPE.error error={true}>Enter valid token address</TYPE.error>}
+          {searchQuery !== '' && !isAddressSearch && (
+            <TYPE.error error={true}>{t('swapPage.enterValidAddress')}</TYPE.error>
+          )}
           {searchToken && (
             <Card backgroundColor={theme.bg2} padding="10px 0">
               <ImportRow
@@ -128,7 +131,7 @@ export default function ManageTokens({
             </TYPE.main>
             {userAddedTokens.length > 0 && (
               <ButtonText onClick={handleRemoveAll}>
-                <TYPE.blue>Clear all</TYPE.blue>
+                <TYPE.blue>{t('swapPage.clearAll')}</TYPE.blue>
               </ButtonText>
             )}
           </RowBetween>
@@ -136,7 +139,7 @@ export default function ManageTokens({
         </PaddedColumn>
       </Column>
       <Footer>
-        <TYPE.darkGray>Tip: Custom tokens are stored locally in your browser</TYPE.darkGray>
+        <TYPE.darkGray>{t('swapPage.importListTip')}</TYPE.darkGray>
       </Footer>
     </Wrapper>
   )

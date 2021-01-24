@@ -61,7 +61,7 @@ export default function Manage({
   return (
     <Wrapper>
       <PaddedColumn>
-        <RowBetween>
+        <RowBetween dir={'ltr'}>
           <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.search)} />
           <Text fontWeight={500} fontSize={20}>
             {t('manage')}

@@ -130,6 +130,7 @@
   "tip": "Tip",
   "lists": "Lists",
   "tokens": "Tokens",
+  "clearAll": "Clear all",
   "liquidity": {
     "add": "Add Liquidity",
     "remove": "Remove Liquidity",
@@ -226,7 +227,11 @@
     "fakeTokenWarning3": "If you purchase an arbitrary token, ",
     "fakeTokenWarning4": "you may be unable to sell it back",
     "tokenImported": "Token imported",
-    "priceImpactAlert": "This swap has a price impact of at least {{percent}}%. Please type the word 'confirm' to continue with this swap."
+    "priceImpactAlert": "This swap has a price impact of at least {{percent}}%. Please type the word 'confirm' to continue with this swap.",
+    "importListTip": "Tip: Custom tokens are stored locally in your browser",
+    "enterValidAddress": "Enter valid token address",
+    "importList": "Import List",
+    "importAtYourRisk": "Import at your own risk"
   },
   "poolPage": {
     "yourLiquidity": "Your Liquidity",

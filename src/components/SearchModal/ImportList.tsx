@@ -21,6 +21,7 @@ import { useFetchListCallback } from 'hooks/useFetchListCallback'
 import { removeList, enableList } from 'state/lists/actions'
 import { CurrencyModalView } from './CurrencySearchModal'
 import { useAllLists } from 'state/lists/hooks'
+import { useTranslation } from 'react-i18next'
 
 const Wrapper = styled.div`
   position: relative;
@@ -74,13 +75,13 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
         dispatch(removeList(listURL))
       })
   }, [adding, dispatch, fetchList, listURL, setModalView])
-
+  const { t } = useTranslation()
   return (
     <Wrapper>
       <PaddedColumn gap="14px" style={{ width: '100%', flex: '1 1' }}>
         <RowBetween>
           <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.manage)} />
-          <TYPE.mediumHeader>Import List</TYPE.mediumHeader>
+          <TYPE.mediumHeader>{t('swapPage.importList')}</TYPE.mediumHeader>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
       </PaddedColumn>
@@ -98,7 +99,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
                     </TYPE.body>
                     <TextDot />
                     <TYPE.main fontSize={'16px'} ml="6px">
-                      {list.tokens.length} tokens
+                      {`${list.tokens.length} ${t('tokens')}`}
                     </TYPE.main>
                   </RowFixed>
                   <ExternalLink href={`https://tokenlists.org/token-list?url=${listURL}`}>
@@ -114,7 +115,7 @@ export function ImportList({ listURL, list, setModalView, onDismiss }: ImportPro
             <AutoColumn justify="center" style={{ textAlign: 'center', gap: '16px', marginBottom: '12px' }}>
               <AlertTriangle stroke={theme.red1} size={32} />
               <TYPE.body fontWeight={500} fontSize={20} color={theme.red1}>
-                Import at your own risk{' '}
+                {t('swapPage.importAtYourRisk')}
               </TYPE.body>
             </AutoColumn>
 
