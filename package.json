@@ -118,7 +118,5 @@
     ]
   },
   "license": "GPL-3.0-or-later",
-  "dependencies": {
-    "vazir-font": "^26.0.2"
-  }
+  "dependencies": {}
 }
